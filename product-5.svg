@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="Hộp cà phê phin giấy">
+<defs>
+<radialGradient id="g" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#f2dcc0"/></radialGradient>
+<linearGradient id="b" x1="0" x2="1"><stop offset="0" stop-color="#b9742f"/><stop offset="1" stop-color="#8a531d"/></linearGradient>
+</defs>
+<rect width="400" height="480" fill="url(#g)"/>
+<ellipse cx="200" cy="430" rx="130" ry="14" fill="#2b1810" opacity=".18"/>
+<rect x="90" y="110" width="220" height="310" rx="10" fill="url(#b)"/>
+<rect x="90" y="110" width="220" height="44" rx="10" fill="#6e3f14"/>
+<rect x="120" y="190" width="160" height="190" rx="10" fill="#f8efe0"/>
+<path d="M150 235 H250 L232 280 H168 Z" fill="#fff" stroke="#8a531d" stroke-width="3"/>
+<path d="M168 280 Q200 300 232 280" fill="#3d2518"/>
+<path d="M200 296 Q196 308 200 316 Q204 308 200 296 Z" fill="#c8843a"/>
+<text x="200" y="344" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" letter-spacing="1" fill="#2b1810">HẠT MỘC</text>
+<text x="200" y="364" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#8a531d">Drip Bag · Hộp 10</text>
+</svg>

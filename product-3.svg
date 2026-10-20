@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="Culi Honey">
+<defs>
+<linearGradient id="b" x1="0" x2="1"><stop offset="0" stop-color="#c8843a"/><stop offset="1" stop-color="#8f5719"/></linearGradient>
+<radialGradient id="g" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#f9e6c8"/></radialGradient>
+</defs>
+<rect width="400" height="480" fill="url(#g)"/>
+<ellipse cx="200" cy="438" rx="110" ry="14" fill="#2b1810" opacity=".18"/>
+<path d="M105 92 Q200 70 295 92 L305 420 Q200 436 95 420 Z" fill="url(#b)"/>
+<path d="M105 92 Q200 70 295 92 L297 128 Q200 112 103 128 Z" fill="#8f5719"/>
+<path d="M118 100 Q200 84 282 100" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none" stroke-dasharray="4 7"/>
+<rect x="132" y="178" width="136" height="188" rx="12" fill="#f8efe0"/>
+<rect x="140" y="186" width="120" height="172" rx="8" fill="none" stroke="#c8843a" stroke-width="2"/>
+<ellipse cx="200" cy="222" rx="17" ry="24" fill="#8f5719" transform="rotate(25 200 222)"/>
+<path d="M192 202 Q204 222 208 242" stroke="#f8efe0" stroke-width="4" fill="none" stroke-linecap="round"/>
+<text x="200" y="274" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" letter-spacing="1" fill="#2b1810">HẠT MỘC</text>
+<text x="200" y="302" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#8f5719">Culi Honey</text>
+<text x="200" y="326" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" letter-spacing="1" fill="#8a7566">HONEY PROCESS</text>
+<text x="200" y="348" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#c8843a">250g</text>
+<path d="M105 92 Q96 250 95 420" stroke="#fff" stroke-opacity=".18" stroke-width="10" fill="none"/>
+</svg>

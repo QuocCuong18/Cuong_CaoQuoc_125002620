@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Tách cà phê nóng">
+<defs>
+<radialGradient id="bg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f0b455" stop-opacity=".55"/><stop offset="1" stop-color="#f0b455" stop-opacity="0"/></radialGradient>
+<linearGradient id="cup" x1="0" x2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e8d8c4"/></linearGradient>
+</defs>
+<circle cx="300" cy="300" r="290" fill="url(#bg)"/>
+<circle cx="300" cy="320" r="230" fill="#f3dfc0"/>
+<ellipse cx="300" cy="470" rx="210" ry="38" fill="#2b1810" opacity=".18"/>
+<ellipse cx="300" cy="445" rx="200" ry="40" fill="#e0c9a8"/>
+<ellipse cx="300" cy="438" rx="170" ry="30" fill="#f4e6d0"/>
+<path d="M150 250 H450 Q450 420 300 430 Q150 420 150 250 Z" fill="url(#cup)"/>
+<path d="M440 280 Q520 280 505 345 Q490 395 425 385" stroke="#e8d8c4" stroke-width="26" fill="none" stroke-linecap="round"/>
+<ellipse cx="300" cy="250" rx="150" ry="34" fill="#f8efe0"/>
+<ellipse cx="300" cy="252" rx="132" ry="26" fill="#3d2518"/>
+<ellipse cx="300" cy="256" rx="96" ry="16" fill="#c8843a" opacity=".55"/>
+<path d="M300 244 q-14 8 0 14 q14 -6 0 -14" fill="#f8efe0" opacity=".85"/>
+<g fill="none" stroke="#c8843a" stroke-width="9" stroke-linecap="round" opacity=".75">
+<path d="M245 195 C215 160 275 140 245 100 C230 80 250 60 250 60"/>
+<path d="M300 190 C270 150 330 125 300 85 C285 65 305 45 305 45"/>
+<path d="M355 195 C325 160 385 140 355 100 C340 80 360 60 360 60"/>
+</g>
+<text x="300" y="360" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#c8843a">Hạt Mộc</text>
+<text x="300" y="386" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" letter-spacing="6" fill="#8a7566">COFFEE</text>
+<g transform="translate(90 470) rotate(84)"><ellipse rx="22" ry="30" fill="#3d2518"/><path d="M-6 -24 Q8 0 -2 26" stroke="#c8843a" stroke-width="3" fill="none" stroke-linecap="round"/></g><g transform="translate(150 500) rotate(72)"><ellipse rx="22" ry="30" fill="#3d2518"/><path d="M-6 -24 Q8 0 -2 26" stroke="#c8843a" stroke-width="3" fill="none" stroke-linecap="round"/></g><g transform="translate(470 480) rotate(90)"><ellipse rx="22" ry="30" fill="#3d2518"/><path d="M-6 -24 Q8 0 -2 26" stroke="#c8843a" stroke-width="3" fill="none" stroke-linecap="round"/></g><g transform="translate(420 505) rotate(66)"><ellipse rx="22" ry="30" fill="#3d2518"/><path d="M-6 -24 Q8 0 -2 26" stroke="#c8843a" stroke-width="3" fill="none" stroke-linecap="round"/></g><g transform="translate(60 400) rotate(60)"><ellipse rx="22" ry="30" fill="#3d2518"/><path d="M-6 -24 Q8 0 -2 26" stroke="#c8843a" stroke-width="3" fill="none" stroke-linecap="round"/></g><g transform="translate(520 420) rotate(60)"><ellipse rx="22" ry="30" fill="#3d2518"/><path d="M-6 -24 Q8 0 -2 26" stroke="#c8843a" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+</svg>

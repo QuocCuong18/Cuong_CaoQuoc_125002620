@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hạt Mộc Coffee - Cà phê đặc sản Việt Nam rang xay thủ công, giao tận nơi.">
+  <title>Hạt Mộc Coffee | Cà phê đặc sản Việt Nam</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Thư viện hiệu ứng: Animate.css + AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- CSS riêng -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#noidung">Bỏ qua điều hướng</a>
+
+  <!-- ============ HEADER + NAV ============ -->
+  <header class="site-header">
+    <a class="logo" href="#trangchu" aria-label="Hạt Mộc Coffee - về đầu trang">
+      <img src="assets/favicon.svg" alt="" width="36" height="36">
+      <span>Hạt Mộc<small>Coffee</small></span>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Mở menu">
+    <label for="menu-toggle" class="menu-button" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="#trangchu">Trang chủ</a></li>
+        <li><a href="#gioithieu">Câu chuyện</a></li>
+        <li><a href="#sanpham">Sản phẩm</a></li>
+        <li><a href="#quytrinh">Quy trình</a></li>
+        <li><a href="#camnhan">Khách hàng</a></li>
+        <li><a href="#lienhe" class="nav-cta">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main id="noidung">
+
+    <!-- HERO -->
+    <section class="hero" id="trangchu" aria-labelledby="hero-title">
+      <article class="hero-text">
+        <p class="eyebrow animate__animated animate__fadeInDown">☕ Rang xay thủ công · Giao toàn quốc</p>
+        <h1 id="hero-title" class="animate__animated animate__fadeInDown animate__delay-1s">
+          Mỗi hạt cà phê<br><em>một câu chuyện</em> của đất
+        </h1>
+        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
+          Từ cao nguyên Cầu Đất đến đại ngàn Buôn Ma Thuột, chúng tôi chọn từng hạt
+          chín đỏ, rang vừa đủ lửa để giữ trọn hương thơm nguyên bản.
+        </p>
+        <p class="hero-actions animate__animated animate__fadeInUp animate__delay-2s">
+          <a href="#sanpham" class="btn btn-primary">Khám phá sản phẩm</a>
+          <a href="#quytrinh" class="btn btn-ghost">Xem quy trình</a>
+        </p>
+        <ul class="hero-stats animate__animated animate__fadeIn animate__delay-3s">
+          <li><strong>12+</strong><span>Vùng nguyên liệu</span></li>
+          <li><strong>5.000+</strong><span>Khách hàng thân thiết</span></li>
+          <li><strong>4.9/5</strong><span>Đánh giá trung bình</span></li>
+        </ul>
+      </article>
+
+      <figure class="hero-visual animate__animated animate__zoomIn animate__delay-1s">
+        <img src="assets/hero.svg" alt="Tách cà phê nóng bốc khói cùng những hạt cà phê rang" width="560" height="560">
+        <figcaption class="hero-badge animate__animated animate__bounceIn animate__delay-3s">
+          <strong>-20%</strong> Đơn đầu tiên
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- GIỚI THIỆU / GIÁ TRỊ -->
+    <section class="section" id="gioithieu" aria-labelledby="about-title">
+      <header class="section-head" data-aos="fade-up">
+        <p class="eyebrow">Câu chuyện của chúng tôi</p>
+        <h2 id="about-title">Vì sao chọn Hạt Mộc?</h2>
+        <p>Chúng tôi tin một ly cà phê ngon bắt đầu từ người nông dân tử tế và đôi tay rang cẩn thận.</p>
+      </header>
+
+      <ul class="feature-grid">
+        <li data-aos="fade-up" data-aos-delay="0">
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">🌱</span>
+            <h3>Nguyên liệu sạch</h3>
+            <p>Hạt cà phê thu mua trực tiếp từ nông hộ, truy xuất rõ nguồn gốc từng lô.</p>
+          </article>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="100">
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">🔥</span>
+            <h3>Rang theo mẻ nhỏ</h3>
+            <p>Rang tươi mỗi tuần theo từng mẻ nhỏ để giữ nguyên hương vị đặc trưng.</p>
+          </article>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="200">
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">📦</span>
+            <h3>Giao hàng nhanh</h3>
+            <p>Đóng gói van một chiều, giao nội thành trong ngày và toàn quốc 1-3 ngày.</p>
+          </article>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="300">
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">💚</span>
+            <h3>Đồng hành nông dân</h3>
+            <p>Mỗi gói bán ra, 5% được dành cho quỹ hỗ trợ cây giống vùng cao.</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SẢN PHẨM -->
+    <section class="section section-alt" id="sanpham" aria-labelledby="product-title">
+      <header class="section-head" data-aos="fade-up">
+        <p class="eyebrow">Cửa hàng</p>
+        <h2 id="product-title">Sản phẩm nổi bật</h2>
+        <p>Sáu lựa chọn được khách yêu thích nhất, từ hạt rang đến cà phê pha sẵn.</p>
+      </header>
+
+      <ul class="product-grid">
+        <li data-aos="zoom-in-up" data-aos-delay="0">
+          <article class="card">
+            <figure class="card-media">
+              <img src="assets/product-1.svg" alt="Gói cà phê Arabica Cầu Đất 250g" loading="lazy" width="400" height="480">
+              <span class="tag tag-hot">Bán chạy</span>
+            </figure>
+            <section class="card-body">
+              <h3>Arabica Cầu Đất</h3>
+              <p class="notes">Hương hoa, chua thanh, hậu vị caramel</p>
+              <p class="price-row"><span class="price">185.000đ</span><span class="weight">250g</span></p>
+              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
+            </section>
+          </article>
+        </li>
+
+        <li data-aos="zoom-in-up" data-aos-delay="100">
+          <article class="card">
+            <figure class="card-media">
+              <img src="assets/product-2.svg" alt="Gói cà phê Robusta Buôn Ma Thuột 500g" loading="lazy" width="400" height="480">
+              <span class="tag">Đậm vị</span>
+            </figure>
+            <section class="card-body">
+              <h3>Robusta Buôn Ma Thuột</h3>
+              <p class="notes">Đậm đà, hương cacao, hậu vị béo</p>
+              <p class="price-row"><span class="price">165.000đ</span><span class="weight">500g</span></p>
+              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
+            </section>
+          </article>
+        </li>
+
+        <li data-aos="zoom-in-up" data-aos-delay="200">
+          <article class="card">
+            <figure class="card-media">
+              <img src="assets/product-3.svg" alt="Gói cà phê Culi Honey 250g" loading="lazy" width="400" height="480">
+              <span class="tag tag-new">Mới</span>
+            </figure>
+            <section class="card-body">
+              <h3>Culi Honey</h3>
+              <p class="notes">Ngọt mật ong, trái cây chín, êm dịu</p>
+              <p class="price-row"><span class="price">195.000đ</span><span class="weight">250g</span></p>
+              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
+            </section>
+          </article>
+        </li>
+
+        <li data-aos="zoom-in-up" data-aos-delay="0">
+          <article class="card">
+            <figure class="card-media">
+              <img src="assets/product-4.svg" alt="Chai Cold Brew 330ml" loading="lazy" width="400" height="480">
+              <span class="tag tag-hot">Giải nhiệt</span>
+            </figure>
+            <section class="card-body">
+              <h3>Cold Brew Chai</h3>
+              <p class="notes">Ủ lạnh 18 giờ, mượt, không gắt</p>
+              <p class="price-row"><span class="price">55.000đ</span><span class="weight">330ml</span></p>
+              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
+            </section>
+          </article>
+        </li>
+
+        <li data-aos="zoom-in-up" data-aos-delay="100">
+          <article class="card">
+            <figure class="card-media">
+              <img src="assets/product-5.svg" alt="Hộp cà phê phin giấy tiện lợi" loading="lazy" width="400" height="480">
+              <span class="tag">Tiện lợi</span>
+            </figure>
+            <section class="card-body">
+              <h3>Phin giấy Drip Bag</h3>
+              <p class="notes">Pha trong 3 phút, chỉ cần nước nóng</p>
+              <p class="price-row"><span class="price">99.000đ</span><span class="weight">Hộp 10</span></p>
+              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
+            </section>
+          </article>
+        </li>
+
+        <li data-aos="zoom-in-up" data-aos-delay="200">
+          <article class="card">
+            <figure class="card-media">
+              <img src="assets/product-6.svg" alt="Gói cà phê Blend Sài Gòn 500g" loading="lazy" width="400" height="480">
+              <span class="tag tag-new">Mới</span>
+            </figure>
+            <section class="card-body">
+              <h3>Blend Sài Gòn</h3>
+              <p class="notes">Cân bằng, thơm nồng, hợp pha phin</p>
+              <p class="price-row"><span class="price">175.000đ</span><span class="weight">500g</span></p>
+              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
+            </section>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- QUY TRÌNH -->
+    <section class="section" id="quytrinh" aria-labelledby="process-title">
+      <header class="section-head" data-aos="fade-up">
+        <p class="eyebrow">Từ hạt đến ly</p>
+        <h2 id="process-title">Quy trình 4 bước</h2>
+        <p>Minh bạch từng công đoạn để mỗi ly cà phê bạn uống đều trọn vẹn.</p>
+      </header>
+
+      <ol class="steps">
+        <li data-aos="fade-right" data-aos-delay="0">
+          <article class="step">
+            <span class="step-number">01</span>
+            <h3>Thu hái</h3>
+            <p>Chỉ hái quả chín đỏ bằng tay vào đúng mùa vụ.</p>
+          </article>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="150">
+          <article class="step">
+            <span class="step-number">02</span>
+            <h3>Sơ chế</h3>
+            <p>Phơi tự nhiên trên giàn cao, đảo đều mỗi ngày.</p>
+          </article>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="300">
+          <article class="step">
+            <span class="step-number">03</span>
+            <h3>Rang xay</h3>
+            <p>Rang theo mẻ nhỏ, kiểm soát nhiệt độ từng giây.</p>
+          </article>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="450">
+          <article class="step">
+            <span class="step-number">04</span>
+            <h3>Đóng gói</h3>
+            <p>Túi van một chiều, giao đến tay khi còn thơm nhất.</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CẢM NHẬN KHÁCH HÀNG -->
+    <section class="section section-dark" id="camnhan" aria-labelledby="review-title">
+      <header class="section-head" data-aos="fade-up">
+        <p class="eyebrow">Khách hàng nói gì</p>
+        <h2 id="review-title">Được yêu mến mỗi ngày</h2>
+      </header>
+
+      <ul class="review-grid">
+        <li data-aos="flip-left" data-aos-delay="0">
+          <article class="review">
+            <p class="stars" aria-label="5 trên 5 sao">★★★★★</p>
+            <blockquote>Mở túi ra là thơm nức cả bếp. Arabica Cầu Đất pha phễu lọc ngon hơn nhiều quán tôi từng uống.</blockquote>
+            <footer><strong>Minh Thư</strong> · Nhân viên văn phòng</footer>
+          </article>
+        </li>
+        <li data-aos="flip-left" data-aos-delay="150">
+          <article class="review">
+            <p class="stars" aria-label="5 trên 5 sao">★★★★★</p>
+            <blockquote>Cold Brew mát lạnh, không chua gắt. Cả nhà mình đặt mỗi tuần, giao rất nhanh và đóng gói cẩn thận.</blockquote>
+            <footer><strong>Quốc Bảo</strong> · Sinh viên</footer>
+          </article>
+        </li>
+        <li data-aos="flip-left" data-aos-delay="300">
+          <article class="review">
+            <p class="stars" aria-label="5 trên 5 sao">★★★★★</p>
+            <blockquote>Robusta đậm mà không đắng khé. Rất hợp pha phin sáng sớm, uống một lần là ghiền.</blockquote>
+            <footer><strong>Anh Khoa</strong> · Chủ quán ăn sáng</footer>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- LIÊN HỆ -->
+    <section class="section" id="lienhe" aria-labelledby="contact-title">
+      <header class="section-head" data-aos="fade-up">
+        <p class="eyebrow">Đặt hàng &amp; liên hệ</p>
+        <h2 id="contact-title">Hãy để chúng tôi pha cho bạn</h2>
+        <p>Để lại thông tin, Hạt Mộc sẽ gọi xác nhận trong vòng 30 phút.</p>
+      </header>
+
+      <section class="contact-wrap">
+        <form class="contact-form" action="#" method="post" data-aos="fade-right">
+          <label for="ho-ten">Họ và tên</label>
+          <input type="text" id="ho-ten" name="ho-ten" placeholder="Nguyễn Văn A" required>
+
+          <label for="sdt">Số điện thoại</label>
+          <input type="tel" id="sdt" name="sdt" placeholder="09xx xxx xxx" required>
+
+          <label for="sp">Sản phẩm quan tâm</label>
+          <select id="sp" name="sp">
+            <option>Arabica Cầu Đất</option>
+            <option>Robusta Buôn Ma Thuột</option>
+            <option>Culi Honey</option>
+            <option>Cold Brew Chai</option>
+            <option>Phin giấy Drip Bag</option>
+            <option>Blend Sài Gòn</option>
+          </select>
+
+          <label for="ghi-chu">Ghi chú</label>
+          <textarea id="ghi-chu" name="ghi-chu" rows="4" placeholder="Xay mịn, xay thô, số lượng..."></textarea>
+
+          <button type="submit" class="btn btn-primary">Gửi yêu cầu</button>
+        </form>
+
+        <address class="contact-info" data-aos="fade-left">
+          <h3>Ghé thăm cửa hàng</h3>
+          <p><span aria-hidden="true">📍</span> 22 Đường Hương Lộ, Biên Hòa, Đồng Nai</p>
+          <p><span aria-hidden="true">📞</span> <a href="tel:0900000000">0900 000 000</a></p>
+          <p><span aria-hidden="true">✉️</span> <a href="mailto:hello@hatmoc.vn">hello@hatmoc.vn</a></p>
+          <p><span aria-hidden="true">🕖</span> 7:00 - 22:00, mở cửa mỗi ngày</p>
+        </address>
+      </section>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <section class="footer-top">
+      <p class="footer-brand"><strong>Hạt Mộc Coffee</strong><br>Cà phê đặc sản Việt Nam, rang xay thủ công.</p>
+      <nav aria-label="Liên kết chân trang">
+        <ul>
+          <li><a href="#sanpham">Sản phẩm</a></li>
+          <li><a href="#quytrinh">Quy trình</a></li>
+          <li><a href="#lienhe">Liên hệ</a></li>
+        </ul>
+      </nav>
+      <p>Hotline: <a href="tel:0900000000">0900 000 000</a><br>Email: <a href="mailto:hello@hatmoc.vn">hello@hatmoc.vn</a></p>
+    </section>
+    <p class="copyright">&copy; 2026 Hạt Mộc Coffee. Bài kiểm tra giữa kỳ - Học phần Thiết kế Web, Trường Đại học Lạc Hồng.</p>
+  </footer>
+
+  <!-- AOS: bắt buộc khởi tạo thư viện -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 80 });
+  </script>
+</body>
+</html>

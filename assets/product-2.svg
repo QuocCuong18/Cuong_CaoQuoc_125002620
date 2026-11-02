@@ -8,13 +8,13 @@
 <path d="M105 92 Q200 70 295 92 L305 420 Q200 436 95 420 Z" fill="url(#b)"/>
 <path d="M105 92 Q200 70 295 92 L297 128 Q200 112 103 128 Z" fill="#4e2412"/>
 <path d="M118 100 Q200 84 282 100" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none" stroke-dasharray="4 7"/>
-<rect x="132" y="178" width="136" height="188" rx="12" fill="#f8efe0"/>
-<rect x="140" y="186" width="120" height="172" rx="8" fill="none" stroke="#7a3e22" stroke-width="2"/>
+<rect x="120" y="178" width="160" height="204" rx="12" fill="#f8efe0"/>
+<rect x="128" y="186" width="144" height="188" rx="8" fill="none" stroke="#7a3e22" stroke-width="2"/>
 <ellipse cx="200" cy="222" rx="17" ry="24" fill="#4e2412" transform="rotate(25 200 222)"/>
 <path d="M192 202 Q204 222 208 242" stroke="#f8efe0" stroke-width="4" fill="none" stroke-linecap="round"/>
 <text x="200" y="274" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" letter-spacing="1" fill="#2b1810">HẠT MỘC</text>
 <text x="200" y="298" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#4e2412">Robusta</text><text x="200" y="316" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#4e2412">Buôn Ma Thuột</text>
-<text x="200" y="338" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" letter-spacing="1" fill="#8a7566">ĐẮK LẮK · DARK ROAST</text>
+<text x="200" y="338" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="8.5" letter-spacing="0.6" fill="#8a7566">ĐẮK LẮK · DARK ROAST</text>
 <text x="200" y="358" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#7a3e22">500g</text>
 <path d="M105 92 Q96 250 95 420" stroke="#fff" stroke-opacity=".18" stroke-width="10" fill="none"/>
 </svg>

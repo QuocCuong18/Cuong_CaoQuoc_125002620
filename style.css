@@ -238,6 +238,54 @@ main { padding-top: var(--header-height); }
 .weight { font-size: 0.85rem; padding: 0.1rem 0.7rem; background: var(--cream-color); border-radius: var(--radius-pill); }
 .card-body .btn { text-align: center; }
 
+/* Thanh lọc danh mục + bộ đếm kết quả (do script.js sinh ra) */
+.filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; max-width: 1180px; margin: 0 auto var(--space-sm); }
+.filter-btn {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+  padding: 0.6rem 1.3rem; cursor: pointer;
+  color: var(--dark-color); background: var(--white-color);
+  border: 2px solid #eadcc8; border-radius: var(--radius-pill);
+  transition: transform var(--transition), box-shadow var(--transition),
+              background var(--transition), color var(--transition), border-color var(--transition);
+}
+.filter-btn:hover, .filter-btn:focus-visible { transform: translateY(-3px); border-color: var(--primary-color); box-shadow: var(--shadow-sm); }
+.filter-btn.is-active {
+  color: var(--cream-color); border-color: var(--dark-color);
+  background: linear-gradient(135deg, var(--dark-color), var(--dark-soft));
+  box-shadow: 0 10px 22px rgba(43, 24, 16, 0.25);
+}
+.filter-count {
+  display: inline-grid; place-items: center; min-width: 1.6rem; height: 1.6rem; padding: 0 0.4rem;
+  font-size: 0.78rem; border-radius: var(--radius-pill);
+  background: var(--cream-color); color: var(--primary-dark);
+}
+.filter-btn.is-active .filter-count { background: var(--primary-color); color: var(--white-color); }
+.result-count { margin-bottom: var(--space-md); text-align: center; font-size: 0.9rem; color: var(--muted-color); }
+.empty-state { grid-column: 1 / -1; padding: var(--space-lg); text-align: center; color: var(--muted-color); background: var(--white-color); border-radius: var(--radius); }
+
+/* Làm đẹp thẻ sản phẩm */
+.product-grid .card { border: 1px solid rgba(43, 24, 16, 0.06); animation: cardFade 0.5s ease backwards; }
+.card-media::after {
+  content: ''; position: absolute; inset: auto 0 0 0; height: 40%; pointer-events: none;
+  background: linear-gradient(to top, rgba(43, 24, 16, 0.12), transparent);
+}
+.tag { z-index: 1; box-shadow: 0 6px 14px rgba(43, 24, 16, 0.25); }
+.card-body h3 { transition: color var(--transition); }
+.card:hover .card-body h3 { color: var(--primary-dark); }
+.price-row { padding-top: var(--space-xs); border-top: 1px dashed rgba(43, 24, 16, 0.15); }
+.card-body .btn-small { width: 100%; }
+.btn-small::after { content: '→'; display: inline-block; margin-left: 0.5rem; transition: transform var(--transition); }
+.btn-small:hover::after, .btn-small:focus-visible::after { transform: translateX(5px); }
+@keyframes cardFade { from { opacity: 0; } }
+
+/* Đường kẻ trang trí dưới tiêu đề các phần */
+.section-head h2::after {
+  content: ''; display: block; width: 64px; height: 4px; margin: 0.9rem auto 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
 /* 7. STEPS & REVIEWS ---------------------------------- */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); max-width: 1100px; margin: 0 auto; counter-reset: step; }
 .step {

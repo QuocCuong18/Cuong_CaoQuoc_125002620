@@ -21,3 +21,20 @@ Hạt Mộc Coffee là dự án website giới thiệu thương hiệu cà phê 
 - Tạo giao diện sang trọng, hiện đại và nhất quán.
 - Hỗ trợ hiển thị tốt trên máy tính, máy tính bảng và điện thoại.
 - Cung cấp thông tin liên hệ để khách hàng tìm hiểu
+
+---
+
+## 🗂️ 2. Cấu trúc thư mục
+
+```text
+├── index.html           # Cấu trúc trang (Semantic HTML5)
+├── style.css            # Giao diện, biến CSS, responsive
+├── script.js            # Dữ liệu sản phẩm + hàm renderProducts (vòng lặp sinh giao diện)
+├── function_logic.md    # Giải thích cách truyền dữ liệu vào hàm hiển thị
+├── PROMPT_LOG.md        # Nhật ký prompt engineering
+└── assets/              # Ảnh SVG: hero, 6 sản phẩm, favicon
+```
+
+## ⚙️ 3. Danh sách sản phẩm sinh bằng JavaScript
+
+Danh sách sản phẩm không viết tay trong HTML mà được tạo từ mảng `products` trong `script.js` bằng hàm `renderProducts(list, container)`. Xem chi tiết tại [function_logic.md](function_logic.md).

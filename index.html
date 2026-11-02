@@ -127,97 +127,11 @@
         <p>Sáu lựa chọn được khách yêu thích nhất, từ hạt rang đến cà phê pha sẵn.</p>
       </header>
 
-      <ul class="product-grid">
-        <li data-aos="zoom-in-up" data-aos-delay="0">
-          <article class="card">
-            <figure class="card-media">
-              <img src="assets/product-1.svg" alt="Gói cà phê Arabica Cầu Đất 250g" loading="lazy" width="400" height="480">
-              <span class="tag tag-hot">Bán chạy</span>
-            </figure>
-            <section class="card-body">
-              <h3>Arabica Cầu Đất</h3>
-              <p class="notes">Hương hoa, chua thanh, hậu vị caramel</p>
-              <p class="price-row"><span class="price">185.000đ</span><span class="weight">250g</span></p>
-              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
-            </section>
-          </article>
-        </li>
+      <!-- Thanh lọc và danh sách sản phẩm được script.js tự sinh từ mảng dữ liệu -->
+      <ul class="filter-bar" id="filter-bar" aria-label="Lọc sản phẩm theo danh mục" data-aos="fade-up"></ul>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
 
-        <li data-aos="zoom-in-up" data-aos-delay="100">
-          <article class="card">
-            <figure class="card-media">
-              <img src="assets/product-2.svg" alt="Gói cà phê Robusta Buôn Ma Thuột 500g" loading="lazy" width="400" height="480">
-              <span class="tag">Đậm vị</span>
-            </figure>
-            <section class="card-body">
-              <h3>Robusta Buôn Ma Thuột</h3>
-              <p class="notes">Đậm đà, hương cacao, hậu vị béo</p>
-              <p class="price-row"><span class="price">165.000đ</span><span class="weight">500g</span></p>
-              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
-            </section>
-          </article>
-        </li>
-
-        <li data-aos="zoom-in-up" data-aos-delay="200">
-          <article class="card">
-            <figure class="card-media">
-              <img src="assets/product-3.svg" alt="Gói cà phê Culi Honey 250g" loading="lazy" width="400" height="480">
-              <span class="tag tag-new">Mới</span>
-            </figure>
-            <section class="card-body">
-              <h3>Culi Honey</h3>
-              <p class="notes">Ngọt mật ong, trái cây chín, êm dịu</p>
-              <p class="price-row"><span class="price">195.000đ</span><span class="weight">250g</span></p>
-              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
-            </section>
-          </article>
-        </li>
-
-        <li data-aos="zoom-in-up" data-aos-delay="0">
-          <article class="card">
-            <figure class="card-media">
-              <img src="assets/product-4.svg" alt="Chai Cold Brew 330ml" loading="lazy" width="400" height="480">
-              <span class="tag tag-hot">Giải nhiệt</span>
-            </figure>
-            <section class="card-body">
-              <h3>Cold Brew Chai</h3>
-              <p class="notes">Ủ lạnh 18 giờ, mượt, không gắt</p>
-              <p class="price-row"><span class="price">55.000đ</span><span class="weight">330ml</span></p>
-              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
-            </section>
-          </article>
-        </li>
-
-        <li data-aos="zoom-in-up" data-aos-delay="100">
-          <article class="card">
-            <figure class="card-media">
-              <img src="assets/product-5.svg" alt="Hộp cà phê phin giấy tiện lợi" loading="lazy" width="400" height="480">
-              <span class="tag">Tiện lợi</span>
-            </figure>
-            <section class="card-body">
-              <h3>Phin giấy Drip Bag</h3>
-              <p class="notes">Pha trong 3 phút, chỉ cần nước nóng</p>
-              <p class="price-row"><span class="price">99.000đ</span><span class="weight">Hộp 10</span></p>
-              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
-            </section>
-          </article>
-        </li>
-
-        <li data-aos="zoom-in-up" data-aos-delay="200">
-          <article class="card">
-            <figure class="card-media">
-              <img src="assets/product-6.svg" alt="Gói cà phê Blend Sài Gòn 500g" loading="lazy" width="400" height="480">
-              <span class="tag tag-new">Mới</span>
-            </figure>
-            <section class="card-body">
-              <h3>Blend Sài Gòn</h3>
-              <p class="notes">Cân bằng, thơm nồng, hợp pha phin</p>
-              <p class="price-row"><span class="price">175.000đ</span><span class="weight">500g</span></p>
-              <a href="#lienhe" class="btn btn-small">Đặt mua</a>
-            </section>
-          </article>
-        </li>
-      </ul>
+      <ul class="product-grid" id="product-grid"></ul>
     </section>
 
     <!-- QUY TRÌNH -->
@@ -309,14 +223,7 @@
           <input type="tel" id="sdt" name="sdt" placeholder="09xx xxx xxx" required>
 
           <label for="sp">Sản phẩm quan tâm</label>
-          <select id="sp" name="sp">
-            <option>Arabica Cầu Đất</option>
-            <option>Robusta Buôn Ma Thuột</option>
-            <option>Culi Honey</option>
-            <option>Cold Brew Chai</option>
-            <option>Phin giấy Drip Bag</option>
-            <option>Blend Sài Gòn</option>
-          </select>
+          <select id="sp" name="sp"></select>
 
           <label for="ghi-chu">Ghi chú</label>
           <textarea id="ghi-chu" name="ghi-chu" rows="4" placeholder="Xay mịn, xay thô, số lượng..."></textarea>
@@ -351,10 +258,8 @@
     <p class="copyright">&copy; 2026 Hạt Mộc Coffee. Bài kiểm tra giữa kỳ - Học phần Thiết kế Web, Trường Đại học Lạc Hồng.</p>
   </footer>
 
-  <!-- AOS: bắt buộc khởi tạo thư viện -->
+  <!-- Thư viện AOS phải được nạp trước script.js; script.js sẽ gọi AOS.init() -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 80 });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

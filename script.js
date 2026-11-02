@@ -17,6 +17,9 @@ const CATEGORIES = [
   { id: 'pha-san',  label: 'Pha sẵn & tiện lợi' }
 ];
 
+// Tăng số này mỗi khi sửa ảnh trong assets/ để trình duyệt tải lại ảnh mới thay vì dùng bản cũ trong bộ nhớ đệm
+const ASSET_VERSION = 2;
+
 const products = [
   {
     id: 1,
@@ -127,7 +130,7 @@ function createProductCard(product, index) {
         <li${aosAttrs}>
           <article class="card">
             <figure class="card-media">
-              <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.alt)}" loading="lazy" width="400" height="480">
+              <img src="${escapeHTML(product.image)}?v=${ASSET_VERSION}" alt="${escapeHTML(product.alt)}" loading="lazy" width="400" height="480">
               ${tagHtml}
             </figure>
             <section class="card-body">

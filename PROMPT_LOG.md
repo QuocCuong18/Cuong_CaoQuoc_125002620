@@ -1,7 +1,7 @@
 # NHẬT KÝ PROMPT ENGINEERING (VIBE CODING LOG)
 
 - **Họ và tên:** Cao Quốc Cường
-- **MSSV:** [điền MSSV của bạn]
+- **MSSV:** 125002620
 - **Tên đề tài Website:** Hạt Mộc Coffee - Website bán cà phê đặc sản Việt Nam
 - **Công cụ AI đã sử dụng:** Claude (Anthropic)
 

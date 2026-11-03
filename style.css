@@ -2,7 +2,7 @@
    HẠT MỘC COFFEE - style.css
    Mục lục: 1. Variables  2. Reset  3. Header/Nav  4. Hero
             5. Sections    6. Cards  7. Steps/Reviews
-            8. Contact     9. Footer 10. Responsive
+            8. Contact     9. Footer  9b. Modal  10. Responsive
    ===================================================== */
 
 /* 1. CSS VARIABLES ------------------------------------ */
@@ -348,6 +348,87 @@ main { padding-top: var(--header-height); }
 .site-footer a:hover, .site-footer a:focus-visible { color: var(--primary-color); }
 .copyright { margin-top: var(--space-md); text-align: center; font-size: 0.85rem; color: #94806f; }
 
+/* 9b. MODAL ĐĂNG KÝ MUA HÀNG --------------------------- */
+body.modal-open { overflow: hidden; }
+
+.modal {
+  /* margin: auto bắt buộc phải có: phần reset "* { margin: 0 }" ở trên đã xóa margin mặc định
+     giúp thẻ <dialog> tự nằm giữa màn hình */
+  margin: auto;
+  width: min(540px, calc(100% - 2rem)); max-height: calc(100vh - 2rem);
+  padding: 0; border: none; background: transparent; color: var(--text-color); overflow: visible;
+}
+.modal::backdrop { background: rgba(43, 24, 16, 0.65); backdrop-filter: blur(5px); }
+.modal[open] { animation: modalIn 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.15); }
+.modal[open]::backdrop { animation: backdropIn 0.3s ease; }
+@keyframes modalIn { from { opacity: 0; transform: translateY(28px) scale(0.95); } }
+@keyframes backdropIn { from { opacity: 0; } }
+
+.modal-box {
+  position: relative; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: var(--white-color); border-radius: var(--radius); box-shadow: var(--shadow-lg);
+}
+.modal-head {
+  position: relative; padding: var(--space-md) var(--space-md) 1.4rem;
+  color: var(--cream-color);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(200, 132, 58, 0.45), transparent 55%),
+    linear-gradient(135deg, var(--dark-color), var(--dark-soft));
+}
+.modal-head h2 { margin: 0.3rem 0 0.4rem; font-size: 1.7rem; color: var(--cream-soft); }
+.modal-head p:last-of-type { max-width: 85%; font-size: 0.92rem; color: #dcc9b4; }
+.modal-head .eyebrow { color: #f0b455; }
+.modal-close {
+  position: absolute; top: 0.9rem; right: 0.9rem;
+  display: grid; place-items: center; width: 40px; height: 40px;
+  font-size: 1.7rem; line-height: 1; cursor: pointer;
+  color: var(--cream-color); background: rgba(248, 239, 224, 0.12);
+  border: 1px solid rgba(248, 239, 224, 0.25); border-radius: 50%;
+  transition: transform var(--transition), background var(--transition);
+}
+.modal-close:hover, .modal-close:focus-visible { background: var(--primary-color); transform: rotate(90deg); }
+
+.modal-form { display: flex; flex-direction: column; gap: 0.2rem; padding: var(--space-md); }
+.modal-form[hidden], .modal-success[hidden] { display: none; }
+.field { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.7rem; }
+.field label { font-weight: 600; font-size: 0.9rem; color: var(--dark-color); }
+.field .optional { font-weight: 400; color: var(--muted-color); }
+.field input, .field select {
+  width: 100%; font-family: var(--font-body); font-size: 1rem; padding: 0.75rem 1rem;
+  border: 2px solid #eadcc8; border-radius: 12px; background: var(--cream-soft); color: var(--text-color);
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.field input:hover, .field select:hover { border-color: var(--primary-color); }
+.field input:focus, .field select:focus {
+  outline: none; border-color: var(--primary-color); background: var(--white-color);
+  box-shadow: 0 0 0 4px rgba(200, 132, 58, 0.2);
+}
+.field [aria-invalid="true"] { border-color: #c0392b; background: #fff6f4; }
+.field [aria-invalid="true"]:focus { box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.18); }
+.field-error { min-height: 1.1rem; font-size: 0.82rem; font-weight: 500; color: #b3261e; }
+.field-error:empty { min-height: 0; }
+.field-row { display: grid; grid-template-columns: 1fr 140px; gap: var(--space-sm); }
+
+.modal-total {
+  display: flex; align-items: baseline; justify-content: space-between; margin: var(--space-sm) 0 0;
+  padding: 0.8rem 1rem; font-weight: 600; color: var(--dark-color);
+  background: var(--cream-color); border-radius: 12px; border: 1px dashed rgba(43, 24, 16, 0.25);
+}
+.modal-total output { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--primary-dark); }
+.modal-form .btn { margin-top: var(--space-md); }
+
+.modal-success { padding: var(--space-lg) var(--space-md); text-align: center; }
+.success-icon {
+  display: grid; place-items: center; width: 72px; height: 72px; margin: 0 auto var(--space-sm);
+  font-size: 2.2rem; font-weight: 700; color: var(--white-color);
+  background: linear-gradient(135deg, var(--secondary-color), #567a50); border-radius: 50%;
+  box-shadow: 0 12px 26px rgba(63, 91, 58, 0.4); animation: popIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+@keyframes popIn { from { transform: scale(0); } }
+.modal-success h3 { margin-bottom: 0.6rem; font-size: 1.6rem; }
+.modal-success h3:focus { outline: none; }
+.modal-success p:not(.success-icon) { margin-bottom: var(--space-md); text-wrap: pretty; }
+
 /* 10. RESPONSIVE -------------------------------------- */
 @media (max-width: 1024px) {
   .feature-grid, .steps { grid-template-columns: repeat(2, 1fr); }
@@ -382,6 +463,8 @@ main { padding-top: var(--header-height); }
   .hero-stats { gap: var(--space-md); }
   .contact-form, .contact-info { padding: var(--space-md); }
   .footer-top { flex-direction: column; }
+  .field-row { grid-template-columns: 1fr; }
+  .modal-head h2 { font-size: 1.45rem; }
 }
 
 /* Tôn trọng người dùng muốn giảm chuyển động */

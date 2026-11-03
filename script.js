@@ -2,7 +2,8 @@
    HẠT MỘC COFFEE - script.js
    Hiển thị danh sách sản phẩm bằng vòng lặp từ dữ liệu mẫu.
    Mục lục: 1. Dữ liệu mẫu   2. Hàm tiện ích   3. Hàm hiển thị
-            4. Bộ lọc danh mục  5. Khởi động trang
+            4. Bộ lọc danh mục  5. Modal đăng ký mua hàng
+            6. Khởi động trang
    ===================================================== */
 
 'use strict';
@@ -137,7 +138,7 @@ function createProductCard(product, index) {
               <h3>${escapeHTML(product.name)}</h3>
               <p class="notes">${escapeHTML(product.notes)}</p>
               <p class="price-row"><span class="price">${formatPrice(product.price)}</span><span class="weight">${escapeHTML(product.weight)}</span></p>
-              <a href="#lienhe" class="btn btn-small" data-product="${escapeHTML(product.name)}">Đặt mua</a>
+              <button type="button" class="btn btn-small" data-open-modal data-product="${escapeHTML(product.name)}">Đặt mua</button>
             </section>
           </article>
         </li>`;
@@ -214,7 +215,214 @@ function renderFilterButtons(categories, list, filterBar, activeId) {
   filterBar.innerHTML = html;
 }
 
-/* 5. KHỞI ĐỘNG TRANG ---------------------------------- */
+/* 5. MODAL ĐĂNG KÝ MUA HÀNG ----------------------------
+   Hộp thoại là thẻ <dialog id="order-modal"> trong index.html.
+   JS mở bằng showModal(), đóng bằng close(), form được xử lý
+   bằng sự kiện submit nên trang KHÔNG bị tải lại.
+   ------------------------------------------------------ */
+const PHONE_PATTERN = /^(0|\+84)\d{9}$/;      // 0912345678 hoặc +84912345678
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Tạm tính = đơn giá của sản phẩm được chọn x số lượng (lấy giá từ mảng products)
+function calcTotal(list, productName, quantity) {
+  const qty = Number(quantity);
+  if (!Number.isInteger(qty) || qty < 1) {
+    return 0;
+  }
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].name === productName) {
+      return list[i].price * qty;
+    }
+  }
+  return 0;
+}
+
+// Nhận các giá trị người dùng nhập, trả về object lỗi (rỗng = hợp lệ)
+function validateOrder(values) {
+  const errors = {};
+  if (String(values.name).trim().length < 2) {
+    errors.name = 'Vui lòng nhập họ và tên (ít nhất 2 ký tự).';
+  }
+  const phone = String(values.phone).replace(/[\s.\-]/g, '');
+  if (!PHONE_PATTERN.test(phone)) {
+    errors.phone = 'Số điện thoại chưa đúng, ví dụ 0912 345 678.';
+  }
+  const email = String(values.email).trim();
+  if (email !== '' && !EMAIL_PATTERN.test(email)) {
+    errors.email = 'Email chưa đúng định dạng.';
+  }
+  if (!values.product) {
+    errors.product = 'Vui lòng chọn sản phẩm.';
+  }
+  const qty = Number(values.quantity);
+  if (!Number.isInteger(qty) || qty < 1 || qty > 99) {
+    errors.quantity = 'Số lượng từ 1 đến 99.';
+  }
+  return errors;
+}
+
+function initModal() {
+  const modal = document.getElementById('order-modal');
+  const form = document.getElementById('order-form');
+  if (!modal || !form || typeof modal.showModal !== 'function') {
+    return;
+  }
+
+  const fields = {
+    name: document.getElementById('order-name'),
+    phone: document.getElementById('order-phone'),
+    email: document.getElementById('order-email'),
+    product: document.getElementById('order-product'),
+    quantity: document.getElementById('order-qty')
+  };
+  const totalOutput = document.getElementById('order-total');
+  const successBox = document.getElementById('order-success');
+  const successTitle = document.getElementById('order-success-title');
+  const successText = document.getElementById('order-success-text');
+
+  // Danh sách sản phẩm trong Modal cũng lấy từ mảng products
+  renderProductOptions(products, fields.product);
+
+  /* --- Các hàm hỗ trợ --- */
+  function setError(key, message) {
+    const errorBox = document.getElementById('error-' + key);
+    if (errorBox) {
+      errorBox.textContent = message || '';
+    }
+    if (message) {
+      fields[key].setAttribute('aria-invalid', 'true');
+    } else {
+      fields[key].removeAttribute('aria-invalid');
+    }
+  }
+
+  function clearErrors() {
+    Object.keys(fields).forEach(function (key) { setError(key, ''); });
+  }
+
+  function updateTotal() {
+    totalOutput.textContent = formatPrice(
+      calcTotal(products, fields.product.value, fields.quantity.value)
+    );
+  }
+
+  function hasOption(select, value) {
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].value === value) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // MỞ Modal: đưa form về trạng thái ban đầu, chọn sẵn sản phẩm, rồi hiển thị
+  function openModal(productName) {
+    form.reset();
+    clearErrors();
+    if (productName && hasOption(fields.product, productName)) {
+      fields.product.value = productName;
+    }
+    updateTotal();
+    form.hidden = false;
+    successBox.hidden = true;
+    document.body.classList.add('modal-open'); // khóa cuộn trang phía sau
+    if (!modal.open) {
+      modal.showModal();
+    }
+  }
+
+  // ĐÓNG Modal
+  function closeModal() {
+    if (modal.open) {
+      modal.close();
+    }
+  }
+
+  /* --- Các sự kiện --- */
+
+  // 1) click toàn trang: bắt mọi nút có thuộc tính data-open-modal.
+  //    Dùng ủy quyền sự kiện vì nút "Đặt mua" được JS sinh ra sau khi trang tải.
+  document.addEventListener('click', function (event) {
+    const opener = event.target.closest('[data-open-modal]');
+    if (opener) {
+      openModal(opener.dataset.product);
+    }
+  });
+
+  // 2a) mousedown: ghi nhận chuột bắt đầu bấm ở đâu. Nếu người dùng bôi đen chữ trong
+  //     ô nhập rồi nhả chuột ra nền mờ thì trình duyệt vẫn tạo sự kiện click trên <dialog>;
+  //     biến này giúp không đóng Modal nhầm trong trường hợp đó.
+  let pressStartedOnBackdrop = false;
+  modal.addEventListener('mousedown', function (event) {
+    pressStartedOnBackdrop = (event.target === modal);
+  });
+
+  // 2b) click trong Modal: nút đóng (dấu x, nút "Đóng") hoặc bấm ra vùng nền mờ.
+  //     Bấm vào nền mờ thì event.target chính là thẻ <dialog>.
+  modal.addEventListener('click', function (event) {
+    const clickedBackdrop = (event.target === modal && pressStartedOnBackdrop);
+    if (clickedBackdrop || event.target.closest('[data-close-modal]')) {
+      closeModal();
+    }
+  });
+
+  // 3) close: chạy khi Modal đóng bằng BẤT KỲ cách nào (nút, nền mờ, phím Esc)
+  modal.addEventListener('close', function () {
+    document.body.classList.remove('modal-open');
+  });
+
+  // 4) input: xóa thông báo lỗi của ô đang gõ; đổi số lượng thì tính lại tạm tính
+  form.addEventListener('input', function (event) {
+    const key = event.target.name;
+    if (fields[key]) {
+      setError(key, '');
+    }
+    if (event.target === fields.quantity) {
+      updateTotal();
+    }
+  });
+
+  // 5) change: đổi sản phẩm trong danh sách chọn thì tính lại tạm tính
+  form.addEventListener('change', function (event) {
+    if (event.target === fields.product) {
+      updateTotal();
+    }
+  });
+
+  // 6) submit: chặn hành vi mặc định (tải lại trang), kiểm tra dữ liệu rồi báo kết quả
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const values = {
+      name: fields.name.value,
+      phone: fields.phone.value,
+      email: fields.email.value,
+      product: fields.product.value,
+      quantity: fields.quantity.value
+    };
+    const errors = validateOrder(values);
+    const errorKeys = Object.keys(errors);
+
+    clearErrors();
+    if (errorKeys.length > 0) {
+      errorKeys.forEach(function (key) { setError(key, errors[key]); });
+      fields[errorKeys[0]].focus(); // đưa con trỏ về ô lỗi đầu tiên
+      return;
+    }
+
+    const quantity = Number(values.quantity);
+    const total = calcTotal(products, values.product, quantity);
+    successText.textContent =
+      'Cảm ơn ' + values.name.trim() + '! Hạt Mộc đã ghi nhận đăng ký ' +
+      quantity + ' x ' + values.product + ' (tạm tính ' + formatPrice(total) +
+      ') và sẽ gọi số ' + values.phone.trim() + ' trong vòng 30 phút.';
+    form.hidden = true;
+    successBox.hidden = false;
+    successTitle.focus();
+  });
+}
+
+/* 6. KHỞI ĐỘNG TRANG ---------------------------------- */
 function initShop() {
   const grid = document.getElementById('product-grid');
   const filterBar = document.getElementById('filter-bar');
@@ -244,16 +452,6 @@ function initShop() {
     });
   }
 
-  // Bấm "Đặt mua": chọn sẵn sản phẩm đó trong form liên hệ
-  if (grid && productSelect) {
-    grid.addEventListener('click', function (event) {
-      const link = event.target.closest('a[data-product]');
-      if (link) {
-        productSelect.value = link.dataset.product;
-      }
-    });
-  }
-
   renderProductOptions(products, productSelect);
   showCategory('all');
 }
@@ -264,9 +462,10 @@ if (typeof document !== 'undefined') {
     window.AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 80 });
   }
   initShop();
+  initModal();
 }
 
 // Cho phép chạy thử logic bằng Node.js (không ảnh hưởng trình duyệt)
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { products, CATEGORIES, formatPrice, createProductCard, renderProducts, filterProducts };
+  module.exports = { products, CATEGORIES, formatPrice, createProductCard, renderProducts, filterProducts, calcTotal, validateOrder };
 }

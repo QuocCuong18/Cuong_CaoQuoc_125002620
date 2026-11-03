@@ -29,8 +29,9 @@ Hạt Mộc Coffee là dự án website giới thiệu thương hiệu cà phê 
 ```text
 ├── index.html           # Cấu trúc trang (Semantic HTML5)
 ├── style.css            # Giao diện, biến CSS, responsive
-├── script.js            # Dữ liệu sản phẩm + hàm renderProducts (vòng lặp sinh giao diện)
+├── script.js            # Dữ liệu sản phẩm, renderProducts, bộ lọc, Modal đăng ký
 ├── function_logic.md    # Giải thích cách truyền dữ liệu vào hàm hiển thị
+├── dom_interaction.md   # Mô tả các sự kiện (event) dùng cho Modal đăng ký
 ├── PROMPT_LOG.md        # Nhật ký prompt engineering
 └── assets/              # Ảnh SVG: hero, 6 sản phẩm, favicon
 ```
@@ -38,3 +39,7 @@ Hạt Mộc Coffee là dự án website giới thiệu thương hiệu cà phê 
 ## ⚙️ 3. Danh sách sản phẩm sinh bằng JavaScript
 
 Danh sách sản phẩm không viết tay trong HTML mà được tạo từ mảng `products` trong `script.js` bằng hàm `renderProducts(list, container)`. Xem chi tiết tại [function_logic.md](function_logic.md).
+
+## 🛒 4. Modal đăng ký mua hàng
+
+Nút **Mua hàng ngay** (đầu trang) và các nút **Đặt mua** (trên từng sản phẩm) mở một hộp thoại `<dialog>` chứa form đăng ký bằng JavaScript, trang không tải lại. Hộp thoại đóng được bằng nút X, bấm ra nền mờ hoặc phím Esc; form có kiểm tra dữ liệu và tự tính tạm tính. Xem các sự kiện đã dùng tại [dom_interaction.md](dom_interaction.md).
